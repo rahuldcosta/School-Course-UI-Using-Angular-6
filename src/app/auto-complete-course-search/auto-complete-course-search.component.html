@@ -1,0 +1,62 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center">
+    <h3 style="color: red">{{message}}</h3>
+</div>
+
+<div style="text-align: center">
+    <h3 style="color: blue"><a href="/courseAdd">Click Here To Create a New Course</a></h3>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div id="custom-search-input">
+            <div class="input-group col-md-12" style="text-align: center">
+                <input type="text" id="searchQuery" class="search-query form-control"
+                    placeholder="Search With Course Name" name="courseQuery" [(ngModel)]="courseQuery"
+                    (keyup)="triggerAutoCompleteByCourseName($event.target)" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button" (click)="findCourseDetails()">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="searchDropDown">
+    <div *ngIf="courses.length > 0" class="container">
+        <div *ngFor="let course of courses">
+            <a (click)="setCourseIdForSearch(course.courseId,course.courseName)">{{course.courseName}}</a>
+        </div>
+    </div>
+</div>
+    <div id="searchResult" class="container">
+        <div *ngIf="courses.length > 0 " class="row col-md-6 col-md-offset-2 custyle">
+            <table class="table table-striped custab">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Instructor Name</th>
+                        <th>Grade Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let course of courses">
+                        <td>{{course.courseId}}</td>
+                        <td>{{course.courseName}}</td>
+                        <td>{{course.courseDescription}}</td>
+                        <td>{{course.instructorName}}</td>
+                        <td>{{course.gradeLevel}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

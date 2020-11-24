@@ -1,0 +1,56 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center;color: green">
+  <h1>{{message}}</h1>
+</div>
+
+<div style="color: blue">
+    <button><a href="/search">BACK</a></button>
+  </div>
+
+<div class="container center">
+  <div class="row">
+    <div class="col-md-6">
+      <form>
+        <fieldset>
+          <legend class="text-center">Valid information is required to add a Course. <span class="req"><small>
+                required *</small></span></legend>
+
+          <div class="form-group">
+            <label for="Name"><span class="req">* </span> Name: <small>This will be the course name</small>
+            </label>
+            <input required type="text" [(ngModel)]="course.courseName" name="courseName" id="courseName"
+              class="form-control phone" maxlength="28" placeholder="Enter here..." />
+          </div>
+          <div class="form-group">
+            <label for="Description"><span class="req">* </span> Description: <small>Describe the course</small>
+            </label>
+            <textarea required [(ngModel)]="course.courseDescription" name="courseDescription" id="courseDescription"
+              class="form-control phone" maxlength="200" placeholder="Enter here..."></textarea>
+            </div>
+          <div class="form-group">
+            <label for="InstructorName"><span class="req">* </span> Instructor Name: <small>Enter the Instructor's Name</small>
+            </label>
+            <input required type="text" [(ngModel)]="course.instructorName" name="instructorName" id="instructorName" class="form-control phone"
+              maxlength="50" placeholder="Enter here..." />
+          </div>
+          <div class="form-group">
+            <label for="gradeLevel"><span class="req">* </span> Grade Level: <small>Enter the Grade Level between (1-12)</small>
+            </label>
+            <input required type="number" [(ngModel)]="course.gradeLevel" name="gradeLevel" id="gradeLevel" class="form-control phone"
+              min="1" max="12"  />
+          </div>
+
+
+          <div class="form-group">
+            <input class="btn btn-success" type="submit" name="submit_course" value="Add Course" (click)="addCourse()">
+          </div>
+        </fieldset>
+      </form>
+      
+    </div>
+
+  </div>
+</div>

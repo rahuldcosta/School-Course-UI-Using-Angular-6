@@ -1,0 +1,12 @@
+Instructions to Run the shcoology AutoComplete Ui Application
+1. Type docker build -t shcoologyuiangular .    to Build the docker image
+2. Type docker run -it -v  ${PWD}:/user/src/app -p4200:4200 shcoologyuiangular
+3. Using a WebBrowser visit URL http://localhost:4200/ this will show you the AutoComplete Search Page
+
+Additional Info
+1.  http://localhost:4200/courseAdd  path will allow for adding of new courseAdd . Intially plesae add at least 20 courses.
+2.  http://localhost:4200/search path will allow for performing autcomplete search and displaying full details of course.
+
+
+NOTE:
+To modify endpoint please change value of autoCompleteApiUrl in src/environments/environment
